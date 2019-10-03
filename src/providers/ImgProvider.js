@@ -4,14 +4,12 @@ import UploadImg from "../components/upload_img"
 const ImgContext = React.createContext()
 export const ImgConsumer = ImgContext.Consumer
 export class ImgProvider extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {        
-          src:"",
-          type:"",
-          updateImg: updatedImg => this.updateImg(updatedImg)
-        };
-    }
+    state = { 
+            id:"",       
+            src:"",
+            type:"",
+            updateImg: updatedImg => this.updateImg(updatedImg)
+    };
     updateImg = updatedImg => {
         this.setState(prevState => ({
           ...prevState,
@@ -21,7 +19,8 @@ export class ImgProvider extends React.Component{
     render(){
         const { children } = this.props;
         return(
-            <ImgContext.Provider value={this.state}>
+            <ImgContext.Provider value={{state: this.state, onChange: e => this.onChange(e)
+              }}>
                 <UploadImg/>
                 {children}
             </ImgContext.Provider>

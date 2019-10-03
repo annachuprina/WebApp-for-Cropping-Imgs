@@ -13,10 +13,9 @@ export default () => (
   <div className = "container">
     <Icon></Icon>
     <img src={eyepair} className="eyepair" alt="eyepair"/>
-    <div className="left_part"><Link to='./LeftEyePage'><CustomizedButton  style={{ "left": "80px"}} onclick="{LeftEyePage}">MAKE LEFT EYE</CustomizedButton></Link></div>
-    <div className="right_part"> <Link to='./RightEyePage'><CustomizedButton style={{'right':'80px'}} onclick="{RightEyePage}">MAKE RIGHT EYE</CustomizedButton></Link></div>
+    <div className="left_part"><Link to='./LeftEyePage'><CustomizedButton  style={{ "left": "80px"}} onСlick="{LeftEyePage}">MAKE LEFT EYE</CustomizedButton></Link></div>
+    <div className="right_part"> <Link to='./RightEyePage'><CustomizedButton style={{'right':'80px'}} onСlick="{RightEyePage}">MAKE RIGHT EYE</CustomizedButton></Link></div>
   </div>
 );
-
 
 

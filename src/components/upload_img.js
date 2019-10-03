@@ -4,27 +4,30 @@ import "../pages/App.css"
 import { ImgConsumer } from "../providers/ImgProvider"
 
 class UploadImg extends React.Component{
-  constructor(props) {
+  /*constructor(props) {
     super(props);
     this.state = {        
       src:"",
       type:"",
-    };
-  }
+    };    
+    this.onChange = this.onChange.bind(this)
+  }*/
+
   
-  handleOnChange = (event) => {
+  onChange = (event) => {
     event.preventDefault();
     const { files } = event.target;
-    const localImageUrl =  window.URL.createObjectURL(files[0]);
-    //this.props.onFileLoaded(localImageUrl);
-    this.setState({
-      src: localImageUrl,
-      type: files.type,
-    })
-    const updatedImg = { ...this.state } 
-    this.props.updateImg(updatedImg)
-    console.log(this.state.type)
+    if (files[0]){
+      const localImageUrl =  window.URL.createObjectURL(files[0]);
+      //this.props.onFileLoaded(localImageUrl);
+      this.setState({
+        src: localImageUrl,
+        type: files[0].type,
+      })
+      window.location.assign('http://localhost:3000/CropPage/')
+    }
   }
+  
   componentWillReceiveProps(nextProps, prevProps) {
     if(prevProps !== nextProps) {
       this.setState({
@@ -33,19 +36,24 @@ class UploadImg extends React.Component{
       })
     }
   }
-  render(){
+  constructor(props) {//!!!!!!!!!?????????????????
+    super(props);
+    this.state = {
+      uploadedFileCloudinaryUrl: ''
+    };
+  }
+  render(){   
     return(
       <React.Fragment>
-        <Button id = "choose_file_but"><input type = "file" accept=".jpg, .jpeg, .png" name="userfile" onChange={this.handleOnChange}></input></Button>
-        {this.state.src}
-      </React.Fragment>
+        <Button id = "choose_file_but"><input type = "file" accept=".jpg, .jpeg, .png" onChange={this.onChange}></input></Button>
+      </React.Fragment>   
     )
   }
 }
 const ConnectedImgUpdate = props => (
   <ImgConsumer>
     {({src, type, updateImg }) => (
-      <UploadImg
+      <UploadImg 
         {...props}
         src={src}
         type={type}

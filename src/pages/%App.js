@@ -1,40 +1,19 @@
-//import React from 'react';
-//import {Route, BrowserRouter} from "react-router-dom"
-//import LeftEyePage from './pages/LeftEyePage';
-//import RightEyePage from './pages/RightEyePage';
-//import Header from './pages/header';
-
-//class App extends React.Component{
-  //render()
-  //{
-    //return (
-      //<BrowserRouter>
-        //<Route exact path="/" Component={Header}/>
-        //<Route path="/LeftEyePage" Component={LeftEyePage}/>
-        //<Route path="/RightEyePAage" Component={RightEyePage}/>
-      //</BrowserRouter>
-    //)
-  //}
-//}
-//export default App
-
-import React from 'react';
-import {PropTypes} from "prop-types"
-import Header from './header';
-
-class App extends React.Component {
-  render() {
-    return (
-      <div className="container-fluid">
-        <Header />
-        {this.props.children}
-      </div>
-    );
-  }
-}
-
-App.propTypes = {
-  children: PropTypes.object.isRequired
-};
-
+import React, { Component } from 'react';
+import './App.css';
+import Header from './header'
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/lib/integration/react'
+import configureStore from './store/configureStore'
+let { store, persistor } = configureStore()
+class App extends Component {
+   render() {
+       return(<Provider store={store}>
+               <PersistGate loading={null} persistor={persistor}>
+                   <div className="App">
+                       <Header/>
+                   </div>
+               </PersistGate>
+           </Provider>
+       );
+   }}
 export default App;
