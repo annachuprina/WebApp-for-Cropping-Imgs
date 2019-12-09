@@ -1,14 +1,41 @@
-import React from "react";
-import "../pages/App.css";
+import React from "react"
+import BackgroundImg from "../components/BackgroundImg"
+import Icon from "../components/IconWhite"
+import BackgroundColor from "../components/BackgroundColor"
+import right_part from "../assets/right_page.jpg"
+import EyeChooseInput from '../components/EyeChooseInput'
+import {connect} from "react-redux"
+import PropTypes from 'prop-types'
+import {selectImgIsLoaded} from '../store/selectors'
+import ResizeZone from "./ResizeZone"
+import TakePhoto from "../components/TakePhoto"
 
-class RightEyePage extends React.Component{
-    render() {
-        return(
-            <diV class = "right_part" id = "full_page">
-                
-            </diV>
-        );
-    }
+
+function RightEyePage(props) {
+    const {loaded} = props
+    return (loaded !== undefined) ? (
+            <ResizeZone color="white"/>
+        ) : (
+        <div>
+            <BackgroundColor  page="LeftEyePage" color="white"/>
+            <BackgroundImg img={right_part} page="RightEyePage"/>
+            <Icon />
+            <EyeChooseInput  txt="UPLOAD IMAGE" value="UPLOAD IMAGE" page="RightEyePage" />
+            <TakePhoto txt="TAKE PHOTO" value="TAKE PHOTO" page="RightEyePage"/>
+     </div>
+    )  
+}
+RightEyePage.propTypes = {
+    img: PropTypes.shape({
+        crop: PropTypes.bool,
+        size: PropTypes.number,
+        src: PropTypes.string,
+        type: PropTypes.string,
+    }),
 };
-
-export default RightEyePage;
+const mapStateToProps = (store) => {
+    return {
+       loaded: selectImgIsLoaded(store) || undefined,
+    }
+}
+export default connect( mapStateToProps )(RightEyePage)

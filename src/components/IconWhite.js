@@ -1,6 +1,6 @@
 import React, {Component}  from "react";
 import {Link} from "react-router-dom";
-import IconImg from "../assets/eye2.png";
+import IconImgWhite from "../assets/eye.png";
 
 class Icon extends Component{
 
@@ -14,7 +14,7 @@ class Icon extends Component{
         }
         return (
             <div>
-                <Link to='/'><img style={StyledIcon} src={IconImg} className="icon" alt="logo" /></Link>
+                <Link to='/'><img style={StyledIcon} src={IconImgWhite} className="icon" alt="logo" /></Link>
             </div>
         )
     };

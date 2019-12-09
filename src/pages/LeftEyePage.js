@@ -1,23 +1,42 @@
-import React from "react";
-import "../pages/App.css";
-import left_part from "../assets/left_part.jpg";
-import Icon from "../components/icon";
-import TakePhoto from "../components/take_photo"
-import UploadImg from "../components/upload_img";
-//import {connect} from "react-redux"
-//import { createStore } from "redux";
-//import counter from "../reducers/reducers";
-import ImgProvider from "../providers/ImgProvider"
-const LeftEyePage = () => (
-<ImgProvider>
-    <React.Fragment>
-        <div className = "container left_part" id = "full_page">
-            <img src={left_part} className="eyepair" alt="eyepair" id="left_part_img" />
-            <UploadImg ></UploadImg>
-            <TakePhoto></TakePhoto>
-            <Icon></Icon>
+import React from "react"
+import BackgroundImg from "../components/BackgroundImg"
+import Icon from "../components/Icon"
+import BackgroundColor from "../components/BackgroundColor"
+import left_part from "../assets/left_part.jpg"
+import EyeChooseInput from '../components/EyeChooseInput'
+import TakePhoto from '../components/TakePhoto'
+import PropTypes from 'prop-types'
+import {selectImgIsLoaded} from '../store/selectors'
+import ResizeZone from "./ResizeZone"
+import {connect} from "react-redux"
+
+
+function LeftEyePage(props) {
+    const {loaded} = props
+    
+    return (loaded !== undefined) ? (
+            <ResizeZone color="black" page="LeftEyePage"/>
+        ) : (
+        <div>
+            <BackgroundColor  page="LeftEyePage" color="black"/>
+            <BackgroundImg img={left_part} page="LeftEyePage"/>
+            <Icon color="black"/>
+            <EyeChooseInput  txt="UPLOAD IMAGE" value="UPLOAD IMAGE" page="LeftEyePage" />
+            <TakePhoto txt="TAKE PHOTO" value="TAKE PHOTO" page="LeftEyePage"/>
         </div>
-    </React.Fragment>
-</ImgProvider>
-);
-export default LeftEyePage
+    )  
+}
+LeftEyePage.propTypes = {
+    img: PropTypes.shape({
+        crop: PropTypes.bool,
+        size: PropTypes.number,
+        src: PropTypes.string,
+        type: PropTypes.string,
+    }),
+};
+const mapStateToProps = (store) => {
+    return {
+       loaded: selectImgIsLoaded(store) || undefined,
+    }
+}
+export default connect( mapStateToProps )(LeftEyePage)

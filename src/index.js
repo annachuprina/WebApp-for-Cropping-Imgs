@@ -1,17 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import Header from './pages/header'
+import Main from './pages/Main'
 import './index.css'
-import { Route, BrowserRouter as Router} from 'react-router-dom'
+import { Route, BrowserRouter} from 'react-router-dom'
 import LeftEyePage from './pages/LeftEyePage';
 import RightEyePage from './pages/RightEyePage';
-//import ImgProvider from "../providers/ImgProvider"
+import Preview from './pages/Preview';
+import {store} from './store'
+import {Provider} from 'react-redux'
 //import * as registerServiceWorker from './serviceWorker';
- 
 ReactDOM.render((
-    <Router>
-      <Route exact path="/" component={Header} />
-      <Route path="/LeftEyePage" component={LeftEyePage} />
-      <Route path="/RightEyePage" component={RightEyePage} />
-    </Router>
-  ), document.getElementById('root'));
+    <div>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Route exact path="/" component={Main} />
+          <Route path="/LeftEyePage" component={LeftEyePage}/>
+          <Route path="/RightEyePage" component={RightEyePage}/>
+          <Route path="/Preview" component={Preview}/>
+        </BrowserRouter>
+      </Provider>
+    </div>
+), document.getElementById('root'));
