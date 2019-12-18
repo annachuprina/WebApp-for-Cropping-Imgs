@@ -20,8 +20,8 @@ function LeftEyePage(props) {
         <div>
             <BackgroundColor  page="LeftEyePage" color="black"/>
             <BackgroundImg img={left_part} page="LeftEyePage"/>
-            <Icon color="black"/>
-            <EyeChooseInput  txt="UPLOAD IMAGE" value="UPLOAD IMAGE" page="LeftEyePage" />
+            <Icon color="white"/>
+            <EyeChooseInput  txt="UPLOAD IMAGE" value="UPLOAD IMAGE" page="LeftEyePage" color="white"/>
             <TakePhoto txt="TAKE PHOTO" value="TAKE PHOTO" page="LeftEyePage"/>
         </div>
     )  

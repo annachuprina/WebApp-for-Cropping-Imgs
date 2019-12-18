@@ -40,7 +40,7 @@ class Preview extends Component {
         <div>
             <BackgroundColor page="main" color="black"/>
             <Left>
-                <Icon  color="white"/>
+                <Icon  color="black"/>
                 <DownloadLeftEye/>
             </Left>
             <Right> 

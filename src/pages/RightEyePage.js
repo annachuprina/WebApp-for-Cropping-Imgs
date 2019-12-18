@@ -1,6 +1,6 @@
 import React from "react"
 import BackgroundImg from "../components/BackgroundImg"
-import Icon from "../components/IconWhite"
+import Icon from "../components/Icon"
 import BackgroundColor from "../components/BackgroundColor"
 import right_part from "../assets/right_page.jpg"
 import EyeChooseInput from '../components/EyeChooseInput'
@@ -18,9 +18,9 @@ function RightEyePage(props) {
         ) : (
         <div>
             <BackgroundColor  page="LeftEyePage" color="white"/>
+            <Icon color="black"/>
             <BackgroundImg img={right_part} page="RightEyePage"/>
-            <Icon />
-            <EyeChooseInput  txt="UPLOAD IMAGE" value="UPLOAD IMAGE" page="RightEyePage" />
+            <EyeChooseInput  txt="UPLOAD IMAGE" value="UPLOAD IMAGE" page="RightEyePage" color="black" />
             <TakePhoto txt="TAKE PHOTO" value="TAKE PHOTO" page="RightEyePage"/>
      </div>
     )  

@@ -1,8 +1,3 @@
-// A few JavaScript Functions for Images and Files
-// Thank for Author: Justin Mitchel
-// Source: https://kirr.co/ndywes
-
-// Download a Base64-encoded file
 export function downloadBase64File (base64Data, filename) {
   var element = document.createElement('a')
   element.setAttribute('href', base64Data)
@@ -13,12 +8,10 @@ export function downloadBase64File (base64Data, filename) {
   document.body.removeChild(element)
 }
 
-// Extract an Base64 Image's File Extension
 export function extractImageFileExtensionFromBase64 (base64Data) {
   return base64Data.substring('data:image/'.length, base64Data.indexOf(';base64'))
 }
 
-// Base64 Image to Canvas with a Crop
 export function image64toCanvasRef (canvasRef, image64, pixelCrop) {
   const canvas = canvasRef
   const ctx = canvas.getContext('2d')

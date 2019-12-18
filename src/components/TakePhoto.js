@@ -51,7 +51,7 @@ const TakePhoto = (props) => {
     const videoConstraints = {
         width: 1280,
         height: 720,
-        facingMode: "user"
+        facingMode: "user",
       };
     const webcamRef = React.useRef(null);
    
@@ -79,7 +79,6 @@ const TakePhoto = (props) => {
             ref={webcamRef}
             screenshotFormat="image/jpeg"
             width={1280}
-            videoConstraints={videoConstraints}
         />
         <CustomButton onClick={onChange} htmlFor='ImageInput'  value={props.value} page={props.page}>
           <CustomText page={props.page}>{props.value}

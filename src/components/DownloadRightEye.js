@@ -69,8 +69,9 @@ class DownloadRightEye extends Component {
             const imageData64 = canvasRight.toDataURL('image/' + imgSrcExt)
             const myFilename = "download." + imgSrcExt
             downloadBase64File(imageData64, myFilename)
-            //this.props.dispatch(downloadrightimg(this.props.entities.src, this.props.pixelCrop.width, this.props.pixelCrop.height, this.props.pixelCrop.x, this.props.pixelCrop.y, this.props.entities.base64 )) 
-
+            if (this.props.entities.page === "RightEyePage") {
+                this.props.dispatch(downloadrightimg(this.props.entities.src, this.props.pixelCrop.width, this.props.pixelCrop.height, this.props.pixelCrop.x, this.props.pixelCrop.y, this.props.entities.base64 )) 
+            }
             image64toCanvasRef(canvasRight, this.props.downloadRight.src, this.props.downloadRight)
         }
     }

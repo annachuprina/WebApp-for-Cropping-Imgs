@@ -73,7 +73,7 @@ const EyeChooseInput = (props) => {
     }
     return ( 
       <Container>
-        <Icon color="black"/>
+        <Icon color={props.color}/>
         <CustomInput id='ImageInput' type="file" onChange={onChange} accept="image/*" page={props.page}/>
         <CustomLable htmlFor='ImageInput'  value={props.value} page={props.page}>
           <CustomText page={props.page}>{props.value}

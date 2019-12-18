@@ -40,7 +40,7 @@ function ResizeZone(props) {
   const dispatch = useDispatch()  
   const {crop} = props
   const [height, setHeight] = useState("HEIGHT");
-  const [width, setWidth] = useState('WIDTH"');
+  const [width, setWidth] = useState("WIDTH");
   const onChange = (event, pixelCrop) => {
     dispatch(setcrop(event.height, "px", event.width, event.x, event.y, null))
     pixelCrop.height === 0 && pixelCrop.width === 0 ? dispatch(setpixelcrop(100, 100, pixelCrop.x, pixelCrop.y)) : dispatch(setpixelcrop(pixelCrop.height, pixelCrop.width, pixelCrop.x, pixelCrop.y))
@@ -53,7 +53,7 @@ function ResizeZone(props) {
   }
   return  (
     <MainDiv color={props.color}  >
-      <Icon/>
+      <Icon color={props.color}/>
       <CustDiv> 
         <ReactCrop src={props.entities.src} 
           crop={crop}

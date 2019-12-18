@@ -52,7 +52,7 @@ export const resetimg = () => ({
     type: RESET_IMG
 })
 export const resetleftdownload = () => ({
-    type: RESET_LDOWNLOAD
+    type: RESET_LDOWNLOAD,
 })
 
 export const downloadleftimg = (src, pixelWidth, pixelHeight, x, y, base64) => ({
@@ -67,7 +67,7 @@ export const downloadleftimg = (src, pixelWidth, pixelHeight, x, y, base64) => (
     }
 })
 export const resetrightdownload = () => ({
-    type: RESET_RDOWNLOAD
+    type: RESET_RDOWNLOAD,
 })
 
 export const downloadrightimg = (src, pixelWidth, pixelHeight, x, y, base64) => ({

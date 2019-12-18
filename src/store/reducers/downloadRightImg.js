@@ -1,4 +1,4 @@
-import {DOWNLOAD_RIMG} from "../common"
+import {DOWNLOAD_RIMG, RESET_RDOWNLOAD} from "../common"
 
 const initialState = {  
     src: undefined,
@@ -21,6 +21,16 @@ export const downloadImgRightReducer = (downloadState = initialState, action) =>
             y:  action.payload.y,
             base64:  action.payload.base64,
           };
+        case RESET_RDOWNLOAD:
+          return{
+            ...downloadState,
+            src: undefined,
+            width: undefined ,
+            height: undefined,
+            x: undefined,
+            y: undefined,
+            base64: undefined,            
+          }
         default:
           return downloadState;
       }

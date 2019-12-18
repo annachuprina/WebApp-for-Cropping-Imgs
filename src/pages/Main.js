@@ -8,6 +8,7 @@ import BackgroundColor from "../components/BackgroundColor"
 import {NavLink, Route} from "react-router-dom"
 import LeftEyePage from './LeftEyePage';
 import RightEyePage from './RightEyePage';
+import {icon_white} from "../assets/eye.png"
 import {resetpixel, resetcrop, resetimg, resetleftdownload, resetrightdownload} from "../store/actions"
 
 
@@ -24,7 +25,7 @@ class Header extends Component {
       <div>
         <BackgroundColor page="main" color="black"/>
         <BackgroundImg img={eyepair} page="main"/>
-        <Icon color="white"/>
+        <Icon img={icon_white}/>
         <NavLink to={`/LeftEyePage`}>
           <EyeChooseBut link="./LeftEyePage" value = "MAKE LEFT EYE" as="button" type="button" page="LeftEyePage"></EyeChooseBut>
         </NavLink>

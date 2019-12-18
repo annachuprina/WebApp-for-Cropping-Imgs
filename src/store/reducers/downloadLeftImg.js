@@ -1,4 +1,4 @@
-import {DOWNLOAD_LIMG} from "../common"
+import {DOWNLOAD_LIMG, RESET_LDOWNLOAD} from "../common"
 
 const initialState = {  
     src: undefined,
@@ -21,7 +21,16 @@ export const downloadImgLeftReducer = (downloadState = initialState, action) =>{
             y:  action.payload.y,
             base64:  action.payload.base64,
           };
-          
+        case RESET_LDOWNLOAD:
+          return{
+            ...downloadState,
+            src: undefined,
+            width: undefined ,
+            height: undefined,
+            x: undefined,
+            y: undefined,
+            base64: undefined,            
+          }
         default:
           return downloadState;
       }
