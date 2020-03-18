@@ -25,7 +25,7 @@ class Header extends Component {
       <div>
         <BackgroundColor page="main" color="black"/>
         <BackgroundImg img={eyepair} page="main"/>
-        <Icon img={icon_white}/>
+        <Icon color="white" img={icon_white}/>
         <NavLink to={`/LeftEyePage`}>
           <EyeChooseBut link="./LeftEyePage" value = "MAKE LEFT EYE" as="button" type="button" page="LeftEyePage"></EyeChooseBut>
         </NavLink>
